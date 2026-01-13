@@ -1,68 +1,137 @@
 <html>
-<head>
-  <!-- Link the style sheet here -->
-</head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
-    <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
+  <head>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/bootstrap.min.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: #003366"
+    >
+      <div class="container-fluid">
+        <h2
+          class="navbar-brand mb-0 h1"
+          style="padding-right: 5%; color: white"
+        >
+          Best Cars Automotive
+        </h2>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                style="font-size: larger"
+                aria-current="page"
+                href="/"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" style="font-size: larger" href="/about"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="font-size: larger" href="/contact"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
-        </div>
+    <div
+      class="card"
+      style="width: 80%; margin: auto; margin-top: 2%; border: none"
+    >
+      <div class="banner mb-4" name="about-header">
+        <h1 class="display-4">About Us</h1>
+        <p class="lead">
+          Welcome to <strong>Best Cars Automotive</strong>. With over 20 years
+          of experience, we are North America's premier destination for
+          high-quality domestic and imported vehicles. Our mission is to provide
+          transparency, integrity, and the best driving experience for every
+          customer who walks through our doors.
+        </p>
       </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 mb-4">
+          <div class="card h-100">
+            <img
+              class="card-img-top"
+              src="/static/person1.png"
+              alt="Sarah Jenkins"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Sarah Jenkins</h5>
+              <h6 class="card-subtitle mb-2 text-muted">General Manager</h6>
+              <p class="card-text">
+                Sarah has led our dealership operations for over a decade,
+                ensuring that every client feels like part of the family.
+              </p>
+              <a href="mailto:sarah@bestcars.com" class="card-link"
+                >sarah@bestcars.com</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-4">
+          <div class="card h-100">
+            <img
+              class="card-img-top"
+              src="/static/person2.png"
+              alt="Michael Ross"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Michael Ross</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Director of Sales</h6>
+              <p class="card-text">
+                Mike specializes in finding the perfect vehicle to fit both your
+                lifestyle and your budget without the hassle.
+              </p>
+              <a href="mailto:mike@bestcars.com" class="card-link"
+                >mike@bestcars.com</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-4">
+          <div class="card h-100">
+            <img
+              class="card-img-top"
+              src="/static/person3.png"
+              alt="David Chen"
+            />
+            <div class="card-body">
+              <h5 class="card-title">David Chen</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Head Technician</h6>
+              <p class="card-text">
+                A certified master mechanic, David leads our service center
+                dedicated to keeping your car running smoothly for the long
+                haul.
+              </p>
+              <a href="mailto:david@bestcars.com" class="card-link"
+                >david@bestcars.com</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    </div>
-    </div>
-    
-</div>
-
+  </body>
 </html>
