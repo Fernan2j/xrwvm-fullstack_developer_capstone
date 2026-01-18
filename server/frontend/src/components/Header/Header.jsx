@@ -58,7 +58,7 @@ const Header = () => {
         <div className="container-fluid">
           {/* Brand Name Update */}
           <a className="navbar-brand" href="/">
-            Best Cars Automotive
+            Dealerships
           </a>
 
           <button

@@ -35,17 +35,21 @@ def get_cars(request):
 # Create a `login_request` view to handle sign in request
 @csrf_exempt
 def login_user(request):
-    # Get username and password from request.POST dictionary
     data = json.loads(request.body)
     username = data['userName']
     password = data['password']
-    # Try to check if provide credential can be authenticated
+    
     user = authenticate(username=username, password=password)
+    
     data = {"userName": username}
+    
     if user is not None:
-        # If user is valid, call login method to login current user
         login(request, user)
         data = {"userName": username, "status": "Authenticated"}
+    else:
+        # Explicitly handle the failure case
+        data = {"userName": username, "status": "Failed"} # <--- Add this
+        
     return JsonResponse(data)
 
 # Create a `logout_request` view to handle sign out request
@@ -118,22 +122,31 @@ def get_dealer_details(request, dealer_id):
 
 # Create a `get_dealer_reviews` view to render the reviews of a dealer
 def get_dealer_reviews(request, dealer_id):
-    # if dealer id has been provided
+    # If dealer id has been provided
     if(dealer_id):
-        endpoint = "/fetchReviews/dealer/"+str(dealer_id)
+        endpoint = "/fetchReviews/dealer/" + str(dealer_id)
         reviews = get_request(endpoint)
+
+        # SAFETY CHECK: Did the API return data?
+        if reviews is None:
+            # If the request failed, return an empty list so the frontend doesn't crash
+            return JsonResponse({"status": 200, "reviews": []})
+
         for review_detail in reviews:
             # Check if the review has text before calling sentiment analysis
             if 'review' in review_detail:
                 response = analyze_review_sentiments(review_detail['review'])
-                print(response) # Debugging print
-                # Assign the sentiment value (e.g., 'positive', 'neutral', 'negative')
-                # Note: Adjust ['sentiment'] key if your analyze function returns a different structure
-                review_detail['sentiment'] = response['sentiment']
-        
-        return JsonResponse({"status":200,"reviews":reviews})
+                
+                # SAFETY CHECK: Did sentiment analysis work?
+                if response and 'sentiment' in response:
+                    review_detail['sentiment'] = response['sentiment']
+                else:
+                    # Fallback if sentiment service is down or fails
+                    review_detail['sentiment'] = "neutral"
+
+        return JsonResponse({"status": 200, "reviews": reviews})
     else:
-        return JsonResponse({"status":400,"message":"Bad Request"})
+        return JsonResponse({"status": 400, "message": "Bad Request"})
 
 # Create a `add_review` view to submit a review
 def add_review(request):
