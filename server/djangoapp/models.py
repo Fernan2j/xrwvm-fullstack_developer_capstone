@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.timezone import now
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
@@ -22,7 +21,7 @@ class CarModel(models.Model):
     WAGON = 'WAGON'
     COUPE = 'COUPE'
     SPORTS = 'SPORTS'
-    
+
     CAR_TYPES = [
         (SEDAN, 'Sedan'),
         (SUV, 'SUV'),
@@ -36,8 +35,8 @@ class CarModel(models.Model):
     name = models.CharField(max_length=100)
     # CharField with limited choices
     type = models.CharField(
-        max_length=10, 
-        choices=CAR_TYPES, 
+        max_length=10,
+        choices=CAR_TYPES,
         default=SEDAN
     )
     year = models.IntegerField(
